@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:tldraw.dev)",
+      "Bash(npm create *)",
+      "Bash(npx --yes create-vite@latest . --template react-ts --force)",
+      "Read(//c/Code/**)",
+      "Bash(npx --yes create-vite@latest simula-temp --template react-ts)",
+      "Bash(npm install *)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)"
+    ]
+  }
+}
