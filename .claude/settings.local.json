@@ -10,7 +10,9 @@
       "Bash(npm install *)",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(git *)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Code\\\\simula-r.com\\\\src\\\\layouts\\\\whiteboard.json\" | Select-Object -Property Name, @{Name=\"SizeKB\";Expression={[math]::Round\\($_.Length/1KB, 2\\)}})"
     ]
   }
 }
