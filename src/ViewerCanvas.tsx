@@ -3,7 +3,7 @@ import type { TLEditorSnapshot } from 'tldraw'
 import 'tldraw/tldraw.css'
 import layoutDataRaw from './layouts/whiteboard.json'
 
-const layoutData = layoutDataRaw as TLEditorSnapshot
+const layoutData = layoutDataRaw as unknown as TLEditorSnapshot
 
 export function MoveOnlyCanvas() {
   return (
@@ -12,7 +12,7 @@ export function MoveOnlyCanvas() {
         hideUi
         snapshot={layoutData}
         options={{ camera: { wheelBehavior: 'zoom' } }}
-        components={{ SelectionForeground: null }}
+
         onMount={(editor) => {
           editor.on('change', () => {
             if (editor.getCurrentToolId() !== 'select') {
