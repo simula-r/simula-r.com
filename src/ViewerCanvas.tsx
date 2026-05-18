@@ -9,6 +9,7 @@ export function MoveOnlyCanvas() {
   return (
     <div style={{ position: "fixed", inset: 0 }}>
       <Tldraw
+        licenseKey={import.meta.env.VITE_TLDRAW_LICENSE_KEY}
         hideUi
         snapshot={layoutData}
         options={{ camera: { wheelBehavior: "zoom" }, deepLinks: true }}

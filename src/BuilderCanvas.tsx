@@ -75,6 +75,7 @@ export function BuilderCanvas() {
   return (
     <div style={{ position: "fixed", inset: 0 }}>
       <Tldraw
+        licenseKey={import.meta.env.VITE_TLDRAW_LICENSE_KEY}
         options={{
           deepLinks: true,
         }}
