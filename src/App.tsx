@@ -1,7 +1,8 @@
+import { BuilderCanvas } from './BuilderCanvas'
 import { MoveOnlyCanvas } from './ViewerCanvas'
-// import { ReadonlyCanvas } from './ViewerCanvas'
+
+const isBuilder = new URLSearchParams(window.location.search).has('builder')
 
 export default function App() {
-  return <MoveOnlyCanvas />
-  // return <ReadonlyCanvas />
+  return isBuilder ? <BuilderCanvas /> : <MoveOnlyCanvas />
 }
