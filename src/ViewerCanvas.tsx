@@ -1,9 +1,20 @@
-import { Tldraw } from "tldraw";
-import type { TLEditorSnapshot } from "tldraw";
+import {
+  Tldraw,
+  parseTldrawJsonFile,
+  getSnapshot,
+  createTLStore,
+} from "tldraw";
 import "tldraw/tldraw.css";
-import layoutDataRaw from "./layouts/whiteboard.json";
+import tldrRaw from "./layouts/whiteboard.tldr?raw";
 
-const layoutData = layoutDataRaw as unknown as TLEditorSnapshot;
+const parseResult = parseTldrawJsonFile({
+  json: tldrRaw,
+  schema: createTLStore().schema,
+});
+if (!parseResult.ok) {
+  throw new Error(`Failed to load whiteboard: ${parseResult.error.type}`);
+}
+const layoutData = getSnapshot(parseResult.value);
 
 export function MoveOnlyCanvas() {
   return (
@@ -14,9 +25,11 @@ export function MoveOnlyCanvas() {
         snapshot={layoutData}
         options={{ camera: { wheelBehavior: "zoom" }, deepLinks: true }}
         onMount={(editor) => {
+          editor.setCurrentTool("hand");
+
           editor.on("change", () => {
-            if (editor.getCurrentToolId() !== "select") {
-              editor.setCurrentTool("select");
+            if (editor.getCurrentToolId() !== "hand") {
+              editor.setCurrentTool("hand");
             }
           });
 
