@@ -12,7 +12,8 @@
       "WebFetch(domain:raw.githubusercontent.com)",
       "Bash(npx tsc *)",
       "Bash(git *)",
-      "PowerShell(Get-ChildItem -Path \"C:\\\\Code\\\\simula-r.com\\\\src\\\\layouts\\\\whiteboard.json\" | Select-Object -Property Name, @{Name=\"SizeKB\";Expression={[math]::Round\\($_.Length/1KB, 2\\)}})"
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Code\\\\simula-r.com\\\\src\\\\layouts\\\\whiteboard.json\" | Select-Object -Property Name, @{Name=\"SizeKB\";Expression={[math]::Round\\($_.Length/1KB, 2\\)}})",
+      "Bash(node -e \"let d=''; process.stdin.on\\('data', c => d+=c\\); process.stdin.on\\('end', \\(\\) => { const j = JSON.parse\\(d\\); console.log\\('Top keys:', Object.keys\\(j\\)\\); console.log\\('Schema keys:', Object.keys\\(j.schema\\)\\); }\\)\")"
     ]
   }
 }
